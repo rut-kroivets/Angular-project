@@ -1,0 +1,49 @@
+<!-- add-course.component.html -->
+<form [formGroup]="courseForm" >
+    <div>
+        <label for="name">Course Name:</label>
+        <input type="text" id="name" formControlName="name" required>
+    </div>
+
+    <div>
+        <label for="countOfLessons">Count of Lessons:</label>
+        <input type="number" id="countOfLessons" formControlName="countOfLessons" required>
+    </div>
+
+    <div>
+        <label for="dateOfStart">Date of Start:</label>
+        <input type="date" id="dateOfStart" formControlName="dateOfStart" required>
+    </div>
+
+    <div>
+        <label for="learning">Learning Type:</label>
+        <select id="learning" formControlName="learning">
+            <option *ngFor="let stud of typeList" [value]="stud">{{stud}}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="category">category:</label>
+        <select id="category" formControlName="category">
+            <option *ngFor="let cat of categoryList" [value]="cat.id">{{cat.name}}</option>
+        </select>
+    </div>
+
+    <div *ngFor="let item of syllabusItems; let i = index">
+        <label for="syllabus{{i}}">Syllabus {{i + 1}}:</label>
+        <input type="text" id="syllabus{{i}}" [value]="item" disabled>
+    </div>
+
+    <div>
+        <label for="syllabus"></label>
+        <input type="text" id="syllabus" formControlName="syllabus" (input)="onSyllabusChange1()">
+    </div>
+
+    <div *ngIf="notEmpty1">
+        <label></label>
+        <input type="text" id="syllabus" (input)="onSyllabusChange2()">
+    </div>
+
+
+    <button type="button" (click)="submitForm()">Submit</button>
+</form>

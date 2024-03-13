@@ -1,0 +1,29 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="userName" class="form-label"> Name: </label>
+        <input formControlName="userName" type="text" class="form-control" id="userName"  [value]="nameFromLogin" >
+      <div class="alert alert-danger" *ngIf="!userForm.controls['userName'].valid">this field is required</div>
+    </div>
+    <div class="mb-3">
+        <label for="userMail" class="form-label"> Email: </label>
+        <input formControlName="userMail" type="text" class="form-control" id="userMail">
+      <div class="alert alert-danger" *ngIf="!userForm.controls['userMail'].valid">this field is required</div>
+    </div>
+    <div class="mb-3">
+        <label for="userAddress" class="form-label"> Address: </label>
+        <input formControlName="userAddress" type="text" class="form-control" id="userAddress">
+      <div class="alert alert-danger" *ngIf="!userForm.controls['userAddress'].valid">this field is required</div>
+    </div>
+    <div class="mb-3">
+        <label for="userPassword" class="form-label"> Password: </label>
+        <input formControlName="userPassword" type="text" class="form-control" id="userPassword"  [value]="passwordFromLogin" >
+      <div class="alert alert-danger" *ngIf="!userForm.controls['userPassword'].valid">this field is required</div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">save</button>
+    <div *ngIf="showAlert" class="alert alert-warning alert-dismissible fade show" role="alert">
+        משתמש זה כבר קיים במערכת!
+    </div>
+</form>
+
+
