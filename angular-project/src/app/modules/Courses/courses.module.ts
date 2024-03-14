@@ -9,6 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { NgFor, NgIf } from "@angular/common";
 import { FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CategoryService } from "src/app/services/category.service";
+import { MatCardModule } from "@angular/material/card";
 
 
 
@@ -19,7 +20,7 @@ import { CategoryService } from "src/app/services/category.service";
         CourseDetailsComponent,
         EditCourseComponent, ],
     imports:[ CoursesRoutingModule,
-        MatListModule,NgFor,NgIf, FormsModule, ReactiveFormsModule
+        MatListModule,NgFor,NgIf, FormsModule, ReactiveFormsModule, MatCardModule
     ],
         providers: [CourseService, CategoryService],
         bootstrap:[],  

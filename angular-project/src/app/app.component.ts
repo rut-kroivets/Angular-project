@@ -11,6 +11,8 @@ export class AppComponent {
 
   isConnect: boolean=false;
   constructor(private router: Router) {
+    const jsonString = JSON.stringify(false);
+    localStorage.setItem('isConnect', jsonString);
     // הרשמה לאירוע NavigationEnd המתרחש בכל פעם שיש שינוי בניווט באפליקציה
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {

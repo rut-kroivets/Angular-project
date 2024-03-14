@@ -18,17 +18,20 @@
         public Study? study { get; set; }
         public string? image { get; set; }
 
-        public Course(int id, Lecturer lecturer, string? name, Category? category, int? countOfLessons, DateTime? dateOfStart, List<string>? syllabus, Study? study, string? image)
+        public Course(int id, Lecturer lecturer, string? name, Category? category, int? countOfLessons, DateTime? start, List<string>? syllabus, Study? study, string? image)
         {
             this.id = id;
             this.lecturer = lecturer;
             this.name = name;
             this.category = category;
             this.countOfLessons = countOfLessons;
-            this.dateOfStart = dateOfStart;
+            this.dateOfStart = start;
             this.syllabus = syllabus;
             this.study = study;
             this.image = image;
+        }
+        public Course()
+        {
         }
     }
 }

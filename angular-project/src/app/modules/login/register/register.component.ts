@@ -10,22 +10,30 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit{
+
+
   nameFromLogin:string="";
   passwordFromLogin:string="";
   myUser:User=new User();
   showAlert: boolean = false; 
+  isRequierd: boolean=true;
   users:User[];
   userForm: FormGroup=new FormGroup({
-    userName: new FormControl(this.myUser.name ),
-    userMail: new FormControl(this.myUser.mail),
-    userAddress: new FormControl(this.myUser.address ),
-    userPassword: new FormControl(this.myUser.password)
+    userName: new FormControl(this.myUser.name,Validators["required"] ),
+    userMail: new FormControl(this.myUser.mail,Validators["required"] ),
+    userAddress: new FormControl(this.myUser.address ,Validators["required"] ),
+    userPassword: new FormControl(this.myUser.password,Validators["required"] )
   });;
 
-  constructor(private _router: Router,  private router: ActivatedRoute,private _userService: UserService){}
+  constructor(private _router: Router,  private router: ActivatedRoute,private _userService: UserService){
+    
+  }
 
   onSubmit() {
-
+    this.isRequierd=this.userForm.controls['userName'].valid&&
+    this.userForm.controls['userMail'].valid&&
+    this.userForm.controls['userAddress'].valid&&
+    this.userForm.controls['userPassword'].value;
     //עדכון המשתנה myUser  
     this.myUser.name = this.userForm.controls['userName'].value;
     this.myUser.mail = this.userForm.controls['userMail'].value;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1Wqzzl+qCFy3N8oi4H1cwTX++EU39usTlW7UCkLWicQcFnTqnwyUgbbepIYuyAQR+LVrbXrgAv8vO18FoBnaTw==",
+  "dgSpecHash": "apfEz+DQWSJI3D1lXEFwbsqqpwJgmE2Fv0hcczcnr/8NcyT9io6OSMdbQlz9X7Ci5Qmd8o3CaUQw+ane6/eKLg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user1\\OneDrive\\שולחן העבודה\\פרויקט באנגולר\\AngularProject-main\\serverProject\\serverProject.csproj",
+  "projectFilePath": "C:\\Users\\user1\\OneDrive\\שולחן העבודה\\פרויקט באנגולר\\AngularProject-server\\serverProject\\serverProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user1\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

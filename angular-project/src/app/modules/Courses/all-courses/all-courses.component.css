@@ -12,3 +12,22 @@
   .course-details {
     flex: 1;
   }
+  .search-bar {
+    flex: 1;
+    margin-right: 50px;
+  }
+
+  .course-list {
+    flex: 2;
+  }
+  .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  

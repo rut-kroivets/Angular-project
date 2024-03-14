@@ -1,1 +1,63 @@
-<p>edit-course works!</p>
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Add New Course</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+<form [formGroup]="courseForm" >
+    <div>
+        <label for="name">Course Name:</label>
+        <input type="text" id="name" formControlName="name" required>
+    </div>
+<!-- 
+    <div>
+        <label for="countOfLessons">Count of Lessons:</label>
+        <input type="number" id="countOfLessons" formControlName="countOfLessons" required>
+    </div>
+
+    <div>
+        <label for="dateOfStart">Date of Start:</label>
+        <input type="date" id="dateOfStart" formControlName="dateOfStart" required>
+    </div>
+
+    <div>
+        <label for="imageUrl">Image URL:</label>
+        <input type="text" id="imageUrl" formControlName="imageUrl">
+    </div>
+
+    <div>
+        <label for="learning">Learning Type:</label>
+        <select id="learning" formControlName="learning">
+            <option *ngFor="let stud of typeList" [value]="stud">{{stud}}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="category">Category:</label>
+        <select id="category" formControlName="category">
+            <option *ngFor="let cat of categoryList" [value]="cat.id">{{cat.name}}</option>
+        </select>
+    </div>
+
+    <label for="syllabus">Syllabus:</label>
+    <div *ngFor="let item of syllabusItems; let i = index"> -->
+        <!-- <label for="syllabus{{i}}">Syllabus {{i + 1}}:</label>
+        <input type="text" id="syllabus{{i}}" [value]="item" disabled>
+    </div>
+
+    <div>
+        <label for="syllabus"></label>
+        <input type="text" id="syllabus" formControlName="syllabus" (input)="onSyllabusChange1()">
+    </div>
+
+    <div *ngIf="notEmpty1">
+        <label></label>
+        <input type="text" id="syllabus" (input)="onSyllabusChange2()">
+    </div> -->
+
+
+</form>
+</mat-card-content>
+<mat-card-actions>
+  <button mat-button color="primary" (click)="submitForm()">Submit</button>
+</mat-card-actions>
+</mat-card>
