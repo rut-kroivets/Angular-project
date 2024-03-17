@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Course } from 'src/app/models/course.model';
 import { User } from 'src/app/models/user.model';
 
@@ -23,7 +24,7 @@ export class CourseDetailsComponent {
     this._myCourse=course;
   }
 
-  constructor(){
+  constructor(private router: Router){
     const storedJsonString0 = localStorage.getItem('currentCourse');
    const course= JSON.parse(storedJsonString0);
    this._myCourse=course;
@@ -35,12 +36,11 @@ export class CourseDetailsComponent {
 
 
   }
-  
-  isCloseStartDate(startDate: Date): boolean {
-    const today = new Date();
-    const nextWeek = new Date();
-    nextWeek.setDate(today.getDate() + 7); // תאריך של שבוע הקרוב
-    return startDate <= nextWeek; // האם תאריך ההתחלה נמצא בשבוע הקרוב או לפניו
+
+  onClick(){
+    const jsonString = JSON.stringify(this._myCourse.id);
+    localStorage.setItem('courseID', jsonString);
+    
+    this.router.navigate(['/edit']);
   }
-  
 }

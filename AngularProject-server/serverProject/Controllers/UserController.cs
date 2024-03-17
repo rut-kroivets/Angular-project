@@ -11,9 +11,9 @@ namespace serverProject.Controllers
     {
         private static List<User> users = new List<User>
         {
-            new User { id = 1, name = "John Doe",      mail = "john@example.com", password = "password1" },
-            new User { id = 2, name = "Jane Smith",    mail = "jane@example.com", password = "password2" },
-            new User { id = 3, name = "Alice Johnson", mail = "alice@example.com",password = "password3" }
+            new User { id = 1, name = "John Doe",      mail = "john@example.com", password = "password1", address="hadasim2" },
+            new User { id = 2, name = "Jane Smith",    mail = "jane@example.com", password = "password2",address="hadasim2" },
+            new User { id = 3, name = "Alice Johnson", mail = "alice@example.com",password = "password3",address="hadasim2" }
         };
         private static int counter = 0;
         // GET: api/<UserController>

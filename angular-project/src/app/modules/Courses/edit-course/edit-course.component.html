@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-header>
-      <mat-card-title>Add New Course</mat-card-title>
+      <mat-card-title>Edit Course</mat-card-title>
     </mat-card-header>
     <mat-card-content>
 <form [formGroup]="courseForm" >
@@ -8,7 +8,7 @@
         <label for="name">Course Name:</label>
         <input type="text" id="name" formControlName="name" required>
     </div>
-<!-- 
+
     <div>
         <label for="countOfLessons">Count of Lessons:</label>
         <input type="number" id="countOfLessons" formControlName="countOfLessons" required>
@@ -39,21 +39,10 @@
     </div>
 
     <label for="syllabus">Syllabus:</label>
-    <div *ngFor="let item of syllabusItems; let i = index"> -->
-        <!-- <label for="syllabus{{i}}">Syllabus {{i + 1}}:</label>
-        <input type="text" id="syllabus{{i}}" [value]="item" disabled>
+    <div *ngFor="let item of syllabusItems; let i = index"> 
+         <label for="syllabus{{i}}">Syllabus {{i + 1}}:</label>
+        <input type="text" id="syllabus{{i}}" [value]="item" formControlName="syllabus[i]" >
     </div>
-
-    <div>
-        <label for="syllabus"></label>
-        <input type="text" id="syllabus" formControlName="syllabus" (input)="onSyllabusChange1()">
-    </div>
-
-    <div *ngIf="notEmpty1">
-        <label></label>
-        <input type="text" id="syllabus" (input)="onSyllabusChange2()">
-    </div> -->
-
 
 </form>
 </mat-card-content>

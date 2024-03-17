@@ -25,20 +25,4 @@ export class AuthGuardService implements CanActivate {
         }
         return true;
     }
-
-    // onlyLect():boolean{
-    //     const storedJsonString = localStorage.getItem('isLect');
-    //      const isLect = JSON.parse(storedJsonString);
-    //      if(!isLect){
-    //         Swal.fire({
-    //             position: "center",
-    //             icon: "error",
-    //             title: "You are not Lecturer!",
-    //             showConfirmButton: false,
-    //             timer: 1500
-    //           });
-    //           return false;  
-    //      }
-    //      return true;
-    // }
 }

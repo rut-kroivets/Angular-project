@@ -26,7 +26,7 @@ namespace serverProject.Controllers
         public ActionResult<Category> Get(int id)
         {
             var category = categories.FirstOrDefault(c => c.id == id);
-            
+
             return category;
         }
 
@@ -41,7 +41,7 @@ namespace serverProject.Controllers
         public void Put(int id, [FromBody] Category value)
         {
             var category = categories.FirstOrDefault(c => c.id == id);
-            
+
             category.name = value.name;
             category.icon = value.icon;
 
@@ -51,7 +51,7 @@ namespace serverProject.Controllers
         public void Delete(int id)
         {
             var category = categories.FirstOrDefault(c => c.id == id);
-            
+
             categories.Remove(category);
         }
     }

@@ -9,8 +9,9 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 
 
 const routes: Routes = [
-    { path: "add", component: AddCourseComponent,canActivate: [AuthGuardServiceAdd] },
-    { path: "edit", component: EditCourseComponent},
+    { path: "add", component: AddCourseComponent ,canActivate: [AuthGuardServiceAdd]
+},
+    { path: "edit", component: EditCourseComponent },
     { path: "details", component: CourseDetailsComponent ,canActivate: [AuthGuardService]},
 
 ];

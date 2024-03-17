@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { AddCourseComponent } from './Courses/add-course/add-course.component';
+import { AddCourseComponent } from './modules/Courses/add-course/add-course.component';
 import { AllCoursesComponent } from './modules/Courses/all-courses/all-courses.component';
 import { CourseDetailsComponent } from './modules/Courses/course-details/course-details.component';
 import { EditCourseComponent } from './modules/Courses/edit-course/edit-course.component';

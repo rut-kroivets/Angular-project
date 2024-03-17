@@ -20,11 +20,12 @@ namespace serverProject.Controllers
         };
         private static List<Course> courses = new List<Course>  {
                 new Course(1, new Lecturer { id = 1, name = "John Smith", address = "123 Main St", mail = "john@example.com", password = "password1" }, "Introduction to Programming", categories[0], 12, new DateTime(2022, 3, 15), new List<string> {"Basic concepts", "Data types", "Control structures"}, Study.Online, "https://top-selfie.co.il/wp-content/uploads/2021/05/sunset-1373171.jpg"),
-                new Course(2, new Lecturer { id = 1, name = "John Smith", address = "123 Main St", mail = "john@example.com", password = "password1" }, "Artificial Intelligence Fundamentals", categories[1], 10, new DateTime(2022, 4, 10), new List<string> {"Machine learning", "Neural networks", "Deep learning"}, Study.Hybrid, "https://top-selfie.co.il/wp-content/uploads/2021/05/sunset-1373171.jpg"),
-                new Course(3,new Lecturer { id = 1, name = "John Smith", address = "123 Main St", mail = "john@example.com", password = "password1" }, "Financial Management",categories[2], 8, new DateTime(2022, 4, 25), new List<string> {"Budgeting", "Investment analysis", "Risk management"}, Study.Offline, "https://top-selfie.co.il/wp-content/uploads/2021/05/sunset-1373171.jpg"),
-                new Course(4, new Lecturer { id = 1, name = "John Smith", address = "123 Main St", mail = "john@example.com", password = "password1" }, "Introduction to Psychology", categories[3], 15, new DateTime(2022, 5, 5), new List<string> {"Behavioral psychology", "Cognitive psychology", "Developmental psychology"}, Study.Online, "https://top-selfie.co.il/wp-content/uploads/2021/05/sunset-1373171.jpg"),
-                new Course(5, new Lecturer { id = 1, name = "John Smith", address = "123 Main St", mail = "john@example.com", password = "password1" }, "Graphic Design Basics", categories[4], 6, new DateTime(2022, 5, 20), new List<string> {"Color theory", "Typography", "Layout design"}, Study.Offline, "https://top-selfie.co.il/wp-content/uploads/2021/05/sunset-1373171.jpg")
+                new Course(2, new Lecturer { id = 1, name = "John Smith", address = "123 Main St", mail = "john@example.com", password = "password1" }, "Artificial Intelligence Fundamentals", categories[1], 10, new DateTime(2022, 4, 10), new List<string> {"Machine learning", "Neural networks", "Deep learning"}, Study.Hybrid, "ai-fundamentals.jpg"),
+                new Course(3,new Lecturer { id = 1, name = "John Smith", address = "123 Main St", mail = "john@example.com", password = "password1" }, "Financial Management",categories[2], 8, new DateTime(2022, 4, 25), new List<string> {"Budgeting", "Investment analysis", "Risk management"}, Study.Offline, "financial-management.jpg"),
+                new Course(4, new Lecturer { id = 1, name = "John Smith", address = "123 Main St", mail = "john@example.com", password = "password1" }, "Introduction to Psychology", categories[3], 15, new DateTime(2022, 5, 5), new List<string> {"Behavioral psychology", "Cognitive psychology", "Developmental psychology"}, Study.Online, "intro-psychology.jpg"),
+                new Course(5, new Lecturer { id = 1, name = "John Smith", address = "123 Main St", mail = "john@example.com", password = "password1" }, "Graphic Design Basics", categories[4], 6, new DateTime(2022, 5, 20), new List<string> {"Color theory", "Typography", "Layout design"}, Study.Offline, "graphic-design.jpg")
             };
+
         private static int counter = 0;
         // GET: api/<CourseController>
         [HttpGet]
@@ -42,10 +43,20 @@ namespace serverProject.Controllers
 
         // POST api/<CourseController>
         [HttpPost]
-        public void Post([FromBody] Course value)
+        public IActionResult Post([FromBody] Course value)
         {
-            value.id = ++counter;
-            courses.Add(value);
+            try
+            {
+                Console.WriteLine( "hi");
+                value.id = ++counter;
+                courses.Add(value);
+                return Ok(); // Return 200 OK response if successful
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception appropriately, return appropriate status code
+                return StatusCode(500, ex.Message);
+            }
         }
 
         // PUT api/<CourseController>/5
@@ -53,21 +64,19 @@ namespace serverProject.Controllers
         public void Put(int id, [FromBody] Course value)
         {
             var c = courses.Find(c => c.id == id);
-            if (c is null)
+            if (c == null)
             {
-                c.id = ++counter;
-                courses.Add(c);
+                // If course not found, return NotFound or handle the error according to your application logic
+                return;
             }
-            else
-            {
-                c.lecturer = value.lecturer;
-                c.dateOfStart = value.dateOfStart;
-                c.countOfLessons = value.countOfLessons;
-                c.category = value.category;
-                c.image = value.image;
-                c.study = value.study;
-                c.syllabus = value.syllabus;
-            }
+
+            c.lecturer = value.lecturer;
+            c.dateOfStart = value.dateOfStart;
+            c.countOfLessons = value.countOfLessons;
+            c.category = value.category;
+            c.image = value.image;
+            c.study = value.study;
+            c.syllabus = value.syllabus;
         }
 
         // DELETE api/<CourseController>/5
@@ -77,5 +86,6 @@ namespace serverProject.Controllers
             var c= courses.Find(c => c.id == id);
             courses.Remove(c);
         }
+
     }
 }
